@@ -67,6 +67,7 @@ release/we-smtc
 ```text
 assets/
 bridge/
+bridge/README.md
 config/
 src/
 index.html
@@ -90,6 +91,7 @@ release/
 output/
 bridge/rust-smtc/target/
 bridge/rust-smtc/
+bridge/WallpaperMusicBridge.exe
 assets/manifest.json
 config/settings.schema.json
 config/lyrics-providers.json
@@ -97,10 +99,12 @@ config/lyrics-providers.json
 
 ## Bridge 验收
 
+Bridge exe 作为 GitHub Release 单独附件发布，不内置在 Wallpaper Engine 发布包中。
+
 启动：
 
 ```powershell
-Start-Process .\release\we-smtc\bridge\WallpaperMusicBridge.exe
+Start-Process .\output\github-release\WallpaperMusicBridge-v0.1.0.exe
 ```
 
 健康检查：

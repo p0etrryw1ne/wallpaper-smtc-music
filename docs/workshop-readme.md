@@ -5,7 +5,7 @@
 ## 使用
 
 - 默认可显示 Wallpaper Engine 官方媒体接口提供的歌名、歌手、封面和播放状态。
-- 需要媒体源切换、播放控制、音量控制或更准确进度时，启动 `bridge/WallpaperMusicBridge.exe`。
+- 需要媒体源切换、播放控制、音量控制或更准确进度时，请从 GitHub Releases 单独下载 `WallpaperMusicBridge.exe`，并放到 `bridge/WallpaperMusicBridge.exe`。
 - Bridge 是本机托盘程序，可在托盘菜单中启动服务、停止服务、重启服务或设置开机启动。
 
 ## 设置

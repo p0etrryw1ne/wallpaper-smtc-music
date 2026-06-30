@@ -6,7 +6,7 @@ Wallpaper SMTC Music 是 Web 类型 Wallpaper Engine 壁纸。壁纸启动后会
 
 如果壁纸设置里开启“无音源是否隐藏”，没有可用媒体时播放器会隐藏，只显示背景。
 
-如果从 GitHub 获取，请在 Releases 页面下载发布包。绿色 `Code` 按钮下载的是源码包，不包含编译好的 `WallpaperMusicBridge.exe`。
+如果从 GitHub 获取，请在 Releases 页面下载发布包。绿色 `Code` 按钮下载的是源码包，不包含编译好的 `WallpaperMusicBridge.exe`。Wallpaper Engine 发布包也不内置 Bridge；需要增强功能时，请单独下载 Bridge，并放到发布包的 `bridge/WallpaperMusicBridge.exe`。
 
 ## Bridge 可选增强
 

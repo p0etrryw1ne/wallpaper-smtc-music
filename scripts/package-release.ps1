@@ -1,7 +1,6 @@
 param(
   [string]$OutputDir = "release/we-smtc",
-  [switch]$BuildBridge,
-  [switch]$AllowStaleBridge
+  [switch]$BuildBridge
 )
 
 $ErrorActionPreference = "Stop"
@@ -78,17 +77,8 @@ if ($project.preview) {
   Copy-Item -LiteralPath $previewSource -Destination $fullTarget
 }
 
-$releaseBridge = Join-Path $repoRoot "bridge/rust-smtc/target/release/wallpaper-music-bridge.exe"
-if (-not (Test-Path -LiteralPath $releaseBridge)) {
-  throw "Bridge release exe is missing. Use -BuildBridge for release builds or build the Bridge before using -AllowStaleBridge."
-}
-
-if (-not $BuildBridge -and -not $AllowStaleBridge) {
-  throw "Bridge exe exists but -BuildBridge was not specified. Use -BuildBridge for release builds or -AllowStaleBridge for explicit local packaging."
-}
-
 $bridgeTarget = Join-Path $fullTarget "bridge"
 New-Item -ItemType Directory -Path $bridgeTarget | Out-Null
-Copy-Item -LiteralPath $releaseBridge -Destination (Join-Path $bridgeTarget "WallpaperMusicBridge.exe")
+Copy-Item -LiteralPath (Join-Path $repoRoot "bridge/README.md") -Destination $bridgeTarget
 
 Write-Host "Packaged Wallpaper Engine files to $fullTarget"

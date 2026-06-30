@@ -49,13 +49,13 @@ test("release package script rejects output paths outside repository", () => {
   assert.doesNotMatch(script, /GetRelativePath/);
 });
 
-test("release package script does not silently copy stale bridge exe", () => {
+test("release package script leaves Bridge exe out of the Wallpaper Engine package", () => {
   const script = fs.readFileSync("scripts/package-release.ps1", "utf8");
 
-  assert.match(script, /AllowStaleBridge/);
-  assert.match(script, /-not \$BuildBridge -and -not \$AllowStaleBridge/);
-  assert.match(script, /Bridge release exe is missing/);
-  assert.match(script, /Test-Path -LiteralPath \$releaseBridge/);
-  assert.match(script, /wallpaper-music-bridge\.exe/);
+  assert.match(script, /bridge\/README\.md/);
+  assert.doesNotMatch(script, /AllowStaleBridge/);
+  assert.doesNotMatch(script, /Bridge release exe is missing/);
+  assert.doesNotMatch(script, /Copy-Item[^\n]+\$releaseBridge/);
+  assert.doesNotMatch(script, /WallpaperMusicBridge\.exe/);
   assert.doesNotMatch(script, /wallpaper-music-bridge-poc\.exe/);
 });

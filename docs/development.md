@@ -54,10 +54,10 @@ cargo test --manifest-path bridge/rust-smtc/Cargo.toml
 pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1 -BuildBridge
 ```
 
-只使用已有 Bridge exe 做本地快速打包：
+只打包 Wallpaper Engine 文件，不重新构建 Bridge：
 
 ```powershell
-pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1 -AllowStaleBridge
+pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1
 ```
 
 输出目录：
@@ -66,7 +66,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1 -Allow
 release/we-smtc
 ```
 
-发布包面向 Steam 创意工坊用户，只包含运行必需文件、`LICENSE` 和简短使用说明。
+发布包面向 Steam 创意工坊用户，只包含壁纸运行必需文件、`LICENSE` 和简短使用说明。Bridge exe 不随 WE 包内置，应作为 GitHub Release 单独附件发布。
 
 发布包会包含：
 
@@ -76,7 +76,7 @@ release/we-smtc
 - `assets/`
 - `config/lyrics-api-rules.json`
 - `preview.gif`
-- `bridge/WallpaperMusicBridge.exe`
+- `bridge/README.md`
 - `README.md`（由 `docs/workshop-readme.md` 生成）
 - `LICENSE`
 
@@ -89,6 +89,7 @@ release/we-smtc
 - `tests/`
 - `package.json`
 - Bridge 源码
+- `bridge/WallpaperMusicBridge.exe`
 - `assets/manifest.json`
 - `config/settings.schema.json`
 - `config/lyrics-providers.json`

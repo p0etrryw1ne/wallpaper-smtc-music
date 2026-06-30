@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "purpose": "Static audit manifest for lyric providers. Runtime code does not read this file.",
+  "runtime": false,
+  "note": "这是在线歌词来源审计清单，不是运行时排序配置；运行时 API 地址、媒体源匹配和优先级在 config/lyrics-api-rules.json 中统一配置。",
+  "fieldNotes": {
+    "surface": "该歌词源由网页端、Bridge 本地服务或二者共同调用。",
+    "domains": "可能访问的本机地址或外部域名。",
+    "sends": "查询歌词时可能发送的媒体字段。",
+    "sourceHints": "适合优先尝试该歌词源的媒体 sourceId 关键词。",
+    "risk": "发布到创意工坊前需要关注的隐私、合规或稳定性风险。"
+  },
+  "providers": {
+    "bridge": {
+      "surface": "web-to-local-bridge",
+      "domains": ["127.0.0.1:18768"],
+      "purpose": "Ask the optional local Bridge for lyrics for the current media identity.",
+      "说明": "通过本机 Bridge 查询歌词。网页端只请求本机地址，Bridge 内部可能继续请求外部歌词源。",
+      "defaultEnabled": true,
+      "sends": ["source_id", "title", "artist", "duration"],
+      "requestCount": "1 local request; Bridge may make external lyric requests internally",
+      "sourceHints": ["cloudmusic", "qqmusic"],
+      "risk": "medium: local service can proxy metadata to external lyric services when online lyrics are enabled"
+    },
+    "vkeys": {
+      "surface": "web-and-bridge",
+      "domains": ["api.vkeys.cn"],
+      "purpose": "Search QQ Music and NetEase lyric data through the third-party VKeys aggregation API.",
+      "说明": "第三方聚合歌词接口，可按 QQ 音乐或网易云相关媒体源优先尝试；文档见 https://doc.vkeys.cn/ 和 https://github.com/luoyue712/api-doc。",
+      "defaultEnabled": true,
+      "sends": ["title", "artist", "source_id"],
+      "requestCount": "usually 2 requests: search then lyric",
+      "sourceHints": ["qqmusic", "tencent", "cloudmusic", "netease"],
+      "risk": "high: third-party aggregation API, terms, availability, and upstream stability must be verified before public release"
+    },
+    "lrclib": {
+      "surface": "web-and-bridge",
+      "domains": ["lrclib.net"],
+      "purpose": "Fetch synchronized or plain lyrics from LRCLIB.",
+      "说明": "公共歌词 API，可用歌名、歌手、专辑和时长查询同步歌词或纯文本歌词。",
+      "defaultEnabled": true,
+      "sends": ["title", "artist", "album", "duration"],
+      "requestCount": "1 request",
+      "sourceHints": [],
+      "risk": "medium: public lyric API but still sends media identity to an external service"
+    }
+  }
+}

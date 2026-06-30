@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "purpose": "Canonical static contract for public Wallpaper Engine user settings. Runtime code does not read this file.",
+  "categoryNotes": {
+    "player": "点击封面、歌名等壁纸交互只在当前运行期间临时切换，不会写回 Wallpaper Engine 设置。",
+    "lyrics": "在线歌词查询会向歌词服务发送歌名、歌手等信息；关闭后不主动请求在线歌词。",
+    "background": "启用封面背景时，有封面优先使用封面；无音源时回退到自定义壁纸。两个模糊强度分别控制自定义壁纸和封面背景。",
+    "mediaSources": "媒体源规则仅在 Bridge 服务可用时生效。关键词按 sourceId 子串匹配，逗号、分号或换行分隔，大小写不敏感；低优先级源只在没有普通源时显示，屏蔽源始终隐藏。"
+  },
+  "properties": {
+    "enablePlayer": {
+      "category": "player",
+      "text": "启用播放器",
+      "type": "boolean",
+      "default": true,
+      "we": { "type": "bool" }
+    },
+    "defaultVisibility": {
+      "category": "player",
+      "text": "默认显示",
+      "type": "string",
+      "default": "expanded",
+      "options": [
+        { "label": "播放器", "value": "expanded" },
+        { "label": "展开歌词", "value": "lyrics" },
+        { "label": "迷你播放器", "value": "compact" }
+      ],
+      "we": { "type": "combo" }
+    },
+    "hideWhenNoMedia": {
+      "category": "player",
+      "text": "无音源是否隐藏",
+      "type": "boolean",
+      "default": true,
+      "we": { "type": "bool" }
+    },
+    "lyricsStyle": {
+      "category": "player",
+      "text": "播放器样式",
+      "type": "string",
+      "default": "standard",
+      "options": [
+        { "label": "样式A", "value": "standard" },
+        { "label": "样式B", "value": "immersive" }
+      ],
+      "we": { "type": "combo" }
+    },
+    "showLyrics": {
+      "category": "lyrics",
+      "text": "启用歌词",
+      "type": "boolean",
+      "default": true,
+      "we": { "type": "bool" }
+    },
+    "enableOnlineLyrics": {
+      "category": "lyrics",
+      "text": "在线歌词查询",
+      "type": "boolean",
+      "default": true,
+      "privacy": "When enabled, lyric providers receive media identity such as title, artist, and sometimes duration or album.",
+      "we": { "type": "bool" }
+    },
+    "enableCoverBackground": {
+      "category": "background",
+      "text": "启用封面背景",
+      "type": "boolean",
+      "default": false,
+      "we": { "type": "bool" }
+    },
+    "customWallpaper": {
+      "category": "background",
+      "text": "自定义壁纸",
+      "type": "string",
+      "default": "assets/default.png",
+      "allowEmpty": true,
+      "we": { "type": "file", "fileType": "image" }
+    },
+    "customWallpaperBlur": {
+      "category": "background",
+      "text": "自定义壁纸模糊强度",
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "we": { "type": "slider" }
+    },
+    "coverBackgroundBlur": {
+      "category": "background",
+      "text": "封面背景模糊强度",
+      "type": "number",
+      "default": 64,
+      "min": 0,
+      "max": 100,
+      "we": { "type": "slider" }
+    },
+    "backgroundDim": {
+      "category": "background",
+      "text": "暗化效果",
+      "type": "boolean",
+      "default": false,
+      "we": { "type": "bool" }
+    },
+    "lowPrioritySources": {
+      "category": "mediaSources",
+      "text": "低优先级媒体源",
+      "type": "string",
+      "default": "edge, chrome, firefox, brave, opera, browser",
+      "allowEmpty": true,
+      "we": { "type": "textinput" }
+    },
+    "blockedSources": {
+      "category": "mediaSources",
+      "text": "屏蔽媒体源",
+      "type": "string",
+      "default": "",
+      "allowEmpty": true,
+      "we": { "type": "textinput" }
+    }
+  }
+}

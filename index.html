@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WE-SMTC Music Wallpaper</title>
+    <link rel="stylesheet" href="./src/styles/base.css">
+  </head>
+  <body>
+    <main id="app" class="wallpaper" data-view="idle">
+      <section class="player-shell" aria-label="播放器">
+        <div class="cover-placeholder"></div>
+        <h1 id="trackTitle">WE-SMTC</h1>
+        <p id="trackArtist">等待媒体</p>
+      </section>
+    </main>
+    <script>
+      window.__pendingWallpaperUserProperties = [];
+      window.wallpaperPropertyListener = {
+        applyUserProperties(properties) {
+          window.__pendingWallpaperUserProperties.push(properties);
+        }
+      };
+    </script>
+    <script type="module" src="./src/app/main.js"></script>
+  </body>
+</html>

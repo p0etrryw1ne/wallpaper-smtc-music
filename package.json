@@ -1,0 +1,15 @@
+{
+  "name": "wallpaper-smtc-music",
+  "version": "0.1.0",
+  "description": "Wallpaper Engine SMTC music wallpaper with an optional local Bridge.",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p0etrryw1ne/wallpaper-smtc-music.git"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

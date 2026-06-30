@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "purpose": "Asset provenance and release audit manifest. Runtime code does not read this file.",
+  "assets": {
+    "assets/default.png": {
+      "id": "default-wallpaper",
+      "kind": "runtime-wallpaper",
+      "required": true,
+      "packaging": "copied-with-assets-directory",
+      "referencedBy": [
+        "project.json customWallpaper default",
+        "src/settings/settingsStore.js default settings",
+        "src/background/backgroundState.js fallback"
+      ],
+      "license": "openai-generated-content",
+      "redistributionRisk": "low-to-medium: generated with OpenAI GPT Image; repository owner distributes it with this project, but Steam Workshop publishing rules still apply",
+      "notes": "Default wallpaper and fallback image when no custom wallpaper is configured. Generated with OpenAI GPT Image."
+    },
+    "preview.gif": {
+      "id": "project-preview",
+      "kind": "wallpaper-engine-preview",
+      "required": true,
+      "packaging": "copied-from-project-preview",
+      "referencedBy": [
+        "project.json preview",
+        "scripts/package-release.ps1 preview copy"
+      ],
+      "license": "project-generated-preview",
+      "redistributionRisk": "low-to-medium: verify embedded background/artwork rights if the preview captures third-party media",
+      "notes": "Wallpaper Engine preview file referenced by project.json."
+    },
+    "bridge/rust-smtc/assets/icon.ico": {
+      "id": "bridge-icon",
+      "kind": "windows-bridge-icon",
+      "required": true,
+      "packaging": "embedded-at-bridge-build",
+      "referencedBy": [
+        "bridge/rust-smtc/build.rs"
+      ],
+      "license": "unknown-project-asset",
+      "redistributionRisk": "medium: verify icon source before public distribution",
+      "notes": "Icon embedded into WallpaperMusicBridge.exe."
+    }
+  }
+}

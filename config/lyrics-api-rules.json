@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "commonProviders": ["lrclib", "vkeys.qq", "vkeys.netease"],
+  "sourceProviders": {
+    "qq": {
+      "match": ["qqmusic", "tencent"],
+      "providers": ["vkeys.qq", "lrclib", "vkeys.netease"]
+    },
+    "netease": {
+      "match": ["cloudmusic", "netease"],
+      "providers": ["vkeys.netease", "vkeys.qq", "lrclib"]
+    }
+  },
+  "providerDefinitions": {
+    "vkeys.qq": {
+      "enabled": true,
+      "type": "search-then-lyric",
+      "resultProvider": "vkeys-qq",
+      "searchUrl": "https://api.vkeys.cn/v2/music/tencent/search/song?word={query}&num=8",
+      "searchResultPath": "data",
+      "songIdPath": ["id", "mid", "songmid"],
+      "lyricUrl": "https://api.vkeys.cn/v2/music/tencent/lyric?id={songId}",
+      "lyricPath": "data.lrc",
+      "timeoutMs": 2500
+    },
+    "vkeys.netease": {
+      "enabled": true,
+      "type": "search-then-lyric",
+      "resultProvider": "vkeys-netease",
+      "searchUrl": "https://api.vkeys.cn/v2/music/netease?word={query}&num=8",
+      "searchResultPath": "data",
+      "songIdPath": "id",
+      "lyricUrl": "https://api.vkeys.cn/v2/music/netease/lyric?id={songId}",
+      "lyricPath": "data.lrc",
+      "timeoutMs": 1800
+    },
+    "lrclib": {
+      "enabled": true,
+      "type": "direct-json",
+      "resultProvider": "lrclib",
+      "url": "https://lrclib.net/api/get?track_name={title}&artist_name={artist}&album_name={album}&duration={duration}",
+      "lyricPath": "syncedLyrics",
+      "plainLyricPath": "plainLyrics",
+      "timeoutMs": 2000
+    }
+  }
+}

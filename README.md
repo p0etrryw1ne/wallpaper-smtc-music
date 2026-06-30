@@ -12,15 +12,18 @@ Wallpaper SMTC Music 是一个 Wallpaper Engine Web 音乐壁纸。默认通过 
 
 ## 快速使用
 
-1. 在 Wallpaper Engine 中导入或订阅本壁纸。
-2. 按需要调整壁纸设置中的播放器、歌词、背景和媒体源规则。
-3. 需要播放控制、音量控制或媒体源切换时，启动：
+1. 普通用户请从 GitHub Releases 下载发布包，不要使用绿色 `Code` 按钮下载源码 ZIP。
+2. 在 Wallpaper Engine 中导入或订阅本壁纸。
+3. 按需要调整壁纸设置中的播放器、歌词、背景和媒体源规则。
+4. 需要播放控制、音量控制或媒体源切换时，启动发布包内的：
 
 ```text
 bridge/WallpaperMusicBridge.exe
 ```
 
 Bridge 是托盘程序，不弹控制台。托盘菜单提供开机启动、启动服务、停止服务、重启服务、打开状态窗口和退出。
+
+源码仓库不直接提交编译产物。`WallpaperMusicBridge.exe` 和完整 Wallpaper Engine 发布包会作为 GitHub Release 附件提供。
 
 ## 设置与联网
 

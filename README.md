@@ -59,7 +59,7 @@ http://127.0.0.1:8010/?mock=long&mode=lyrics
 
 ## 外部歌词服务
 
-歌词配置路径：.../config/lyrics-api-rules.json
+歌词API配置路径：.../config/lyrics-api-rules.json
 
 在线歌词可能使用：
 

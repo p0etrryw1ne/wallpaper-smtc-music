@@ -57,6 +57,22 @@ http://127.0.0.1:8010/?mock=long
 http://127.0.0.1:8010/?mock=long&mode=lyrics
 ```
 
+## 外部歌词服务
+
+歌词配置路径：.../config/lyrics-api-rules.json
+
+在线歌词可能使用：
+
+- `api.vkeys.cn`
+- `lrclib.net`
+- 本机 Bridge 端点 `127.0.0.1:18768`
+
+这些服务可能接收歌名、歌手、专辑、媒体源标识和时长等媒体信息。详见 [PRIVACY.md](PRIVACY.md) 和 `config/lyrics-providers.json`。
+
+VKeys API 文档见 [doc.vkeys.cn](https://doc.vkeys.cn/) 和 [luoyue712/api-doc](https://github.com/luoyue712/api-doc)。`api.vkeys.cn` 落月API是第三方聚合 API。LRCLIB 是位于 `lrclib.net` 的公共歌词服务。
+
+感谢以上提供的公共API服务。
+
 ## 文档
 
 - [文档索引](docs/README.md)
